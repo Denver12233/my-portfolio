@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Next.js",
+    "proficiency": 95
+  },
+  {
+    "name": "TypeScript",
+    "proficiency": 90
+  },
+  {
+    "name": "Tailwind CSS",
+    "proficiency": 98
+  },
+  {
+    "name": "React",
+    "proficiency": 92
+  },
+  {
+    "name": "Figma",
+    "proficiency": 85
+  },
+  {
+    "name": "SEO Strategy",
+    "proficiency": 80
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1",
+    "title": "Aura Commerce",
+    "description": "A high-performance e-commerce platform with a focus on minimalist design and lightning-fast checkout.",
+    "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
+    "category": "Web Application",
+    "tags": ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+    "link": "https://aura-commerce.demo",
+    "github": "https://github.com/denver/aura-commerce",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "Zenith Dashboard",
+    "description": "Enterprise-grade analytics dashboard with real-time data visualization and customizable widgets.",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=1000&auto=format&fit=crop",
+    "category": "UI/UX Design",
+    "tags": ["React", "D3.js", "Framer Motion", "Figma"],
+    "link": "https://zenith.demo",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "Pulse Social",
+    "description": "A decentralised social network concept focusing on privacy and user ownership.",
+    "thumbnail": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+    "category": "Web Application",
+    "tags": ["React Native", "Firebase", "Web3"],
+    "github": "https://github.com/denver/pulse-social",
+    "featured": false
+  }
+]
