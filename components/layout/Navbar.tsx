@@ -15,8 +15,8 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4">
-      <nav className="w-full max-w-5xl bg-white/60 dark:bg-black/60 backdrop-blur-xl border border-white/70 dark:border-white/10 rounded-full px-6 py-3 flex items-center justify-between shadow-lg">
-        <Link href="/" className="font-syne text-xl font-extrabold tracking-tighter text-neutral-900 dark:text-white">
+      <nav className="w-full max-w-5xl bg-white/70 dark:bg-zinc-900/80 backdrop-blur-2xl border border-white/80 dark:border-white/[0.08] shadow-[0_1px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_40px_rgba(0,0,0,0.4)] rounded-full px-6 py-3 flex items-center justify-between">
+        <Link href="/" className="font-plusJakarta text-xl font-extrabold tracking-tighter text-neutral-900 dark:text-white">
           DENVER<span className="text-accent-500">.</span>
         </Link>
 

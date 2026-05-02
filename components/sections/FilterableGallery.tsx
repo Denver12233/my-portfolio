@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Project } from "@/types";
 import { ProjectCard } from "../cards/ProjectCard";
 import { filterProjects } from "@/lib/filterProjects";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { getFadeVariant } from "@/lib/animations";
 
 interface FilterableGalleryProps {
   projects: Project[];
@@ -15,6 +16,9 @@ interface FilterableGalleryProps {
 export const FilterableGallery = ({ projects, categories, techStacks }: FilterableGalleryProps) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTech, setSelectedTech] = useState("All");
+
+  const shouldReduceMotion = useReducedMotion();
+  const fadeVariant = getFadeVariant();
 
   const filtered = filterProjects(projects, selectedCategory, selectedTech);
 
@@ -59,11 +63,11 @@ export const FilterableGallery = ({ projects, categories, techStacks }: Filterab
           {filtered.map((project) => (
             <motion.div
               key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              layout={!shouldReduceMotion}
+              variants={fadeVariant}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
               <ProjectCard project={project} />
             </motion.div>

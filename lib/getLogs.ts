@@ -8,6 +8,7 @@ import html from "remark-html";
 const LOGS_PATH = path.join(process.cwd(), "content/logs");
 
 export const getAllLogs = async (): Promise<Log[]> => {
+  await new Promise(resolve => setTimeout(resolve, 1000));
   const files = fs.readdirSync(LOGS_PATH).filter(file => file.endsWith(".md"));
   const logs = files.map(file => {
     const content = fs.readFileSync(path.join(LOGS_PATH, file), "utf8");
@@ -22,6 +23,7 @@ export const getAllLogs = async (): Promise<Log[]> => {
 };
 
 export const getLogBySlug = async (slug: string): Promise<(Log & { html: string }) | null> => {
+  await new Promise(resolve => setTimeout(resolve, 1000));
   try {
     const fullPath = path.join(LOGS_PATH, `${slug}.md`);
     if (!fs.existsSync(fullPath)) return null;

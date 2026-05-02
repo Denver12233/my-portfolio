@@ -1,20 +1,25 @@
 import { getSkills } from "@/lib/getSkills";
 import { SkillBar } from "../ui/SkillBar";
 import { SectionLabel } from "../ui/SectionLabel";
+import { AnimatedSection } from "../ui/AnimatedSection";
+import { StaggerContainer } from "../ui/StaggerContainer";
+import { StaggerItem } from "../ui/StaggerItem";
 
 export const SkillsSection = async () => {
   const skills = await getSkills();
 
   return (
-    <section className="py-20">
+    <AnimatedSection className="py-20">
       <div className="container mx-auto px-6 max-w-5xl">
         <SectionLabel eyebrow="Toolkit" heading="Skills & Proficiency" />
-        <div className="grid md:grid-cols-2 gap-x-20 gap-y-10">
+        <StaggerContainer className="grid md:grid-cols-2 gap-x-20 gap-y-10">
           {skills.map((skill) => (
-            <SkillBar key={skill.name} name={skill.name} proficiency={skill.proficiency} />
+            <StaggerItem key={skill.name}>
+              <SkillBar name={skill.name} proficiency={skill.proficiency} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };

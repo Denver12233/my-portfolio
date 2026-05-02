@@ -25,8 +25,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        syne: ["var(--font-syne)", "sans-serif"],
+        plusJakarta: ["var(--font-plus-jakarta)", "sans-serif"],
         dmSans: ["var(--font-dmsans)", "sans-serif"],
+        sans: ["var(--font-plus-jakarta)", "sans-serif"],
       },
     },
   },

@@ -1,5 +1,8 @@
 import { SectionLabel } from "../ui/SectionLabel";
 import { TimelineItem } from "../cards/TimelineItem";
+import { AnimatedSection } from "../ui/AnimatedSection";
+import { StaggerContainer } from "../ui/StaggerContainer";
+import { StaggerItem } from "../ui/StaggerItem";
 
 export const InternshipTimeline = () => {
   const items = [
@@ -16,15 +19,17 @@ export const InternshipTimeline = () => {
   ];
 
   return (
-    <section className="py-20">
+    <AnimatedSection className="py-20">
       <div className="container mx-auto px-6 max-w-3xl">
         <SectionLabel eyebrow="Experience" heading="Career Journey" />
-        <div className="space-y-12">
+        <StaggerContainer className="space-y-12">
           {items.map((item, i) => (
-            <TimelineItem key={i} item={item} />
+            <StaggerItem key={i}>
+              <TimelineItem item={item} isCurrent={i === 0} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
-    </section>
+    </AnimatedSection>
   );
 };

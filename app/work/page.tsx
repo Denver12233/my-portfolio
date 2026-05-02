@@ -1,4 +1,4 @@
-﻿import { getProjects } from "@/lib/getProjects";
+import { getProjects } from "@/lib/getProjects";
 import { FilterableGallery } from "@/components/sections/FilterableGallery";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
@@ -6,6 +6,8 @@ export const metadata = {
   title: "Work",
   description: "A showcase of my frontend development and UI/UX design projects.",
 };
+
+export const dynamic = "force-dynamic";
 
 export default async function WorkPage() {
   const projects = await getProjects();

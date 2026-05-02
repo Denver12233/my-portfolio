@@ -2,11 +2,12 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 py-12 px-6">
-      <div className="container mx-auto max-w-5xl">
+    <footer className="border-t border-neutral-200 dark:border-neutral-800">
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-accent-500/30 to-transparent mb-12" />
+      <div className="px-6 py-16 max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
-            <h3 className="font-syne text-2xl font-bold mb-2">Denver Tandingan</h3>
+            <h3 className="font-plusJakarta font-bold text-xl tracking-tight text-neutral-900 dark:text-white mb-2">Denver Tandingan</h3>
             <p className="text-neutral-500 dark:text-neutral-400 max-w-xs font-light">
               Frontend Developer & UI/UX Designer Intern passionate about crafting premium digital experiences.
             </p>
@@ -21,7 +22,7 @@ export const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-neutral-100 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-neutral-400 dark:text-neutral-600 mt-8">
             © {new Date().getFullYear()} Denver Tandingan. All rights reserved.
           </p>
            <div className="flex gap-6">

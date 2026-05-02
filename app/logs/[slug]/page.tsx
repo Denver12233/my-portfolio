@@ -14,6 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const log = await getLogBySlug(slug);
@@ -65,7 +67,7 @@ export default async function LogDetail({ params }: Props) {
             {log.tags.map(tag => <Badge key={tag} label={tag} variant="green" />)}
           </div>
         </div>
-        <h1 className="text-5xl md:text-7xl font-syne font-extrabold tracking-tighter mb-8 leading-[0.9] text-neutral-900 dark:text-white">
+        <h1 className="text-5xl md:text-7xl font-plusJakarta font-extrabold tracking-tighter mb-8 leading-[0.9] text-neutral-900 dark:text-white">
           {log.title}
         </h1>
         <p className="text-xl text-neutral-500 dark:text-neutral-300 font-light italic leading-relaxed">
@@ -75,7 +77,7 @@ export default async function LogDetail({ params }: Props) {
 
       <div
         className="prose prose-lg dark:prose-invert prose-emerald max-w-none
-          prose-headings:font-syne prose-headings:font-bold prose-headings:tracking-tight
+          prose-headings:font-plusJakarta prose-headings:font-bold prose-headings:tracking-tight
           prose-p:text-neutral-600 dark:prose-p:text-neutral-300 prose-p:leading-relaxed
           prose-strong:text-neutral-900 dark:prose-strong:text-white"
         dangerouslySetInnerHTML={{ __html: log.html }}

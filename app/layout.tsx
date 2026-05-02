@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const syne = Syne({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
 });
 
 const dmSans = DM_Sans({
@@ -47,7 +47,7 @@ export default function RootLayout({
           } catch(e) {}
         `}} />
       </head>
-      <body className={`${syne.variable} ${dmSans.variable} font-dmsans antialiased`}>
+      <body className={`${plusJakartaSans.variable} ${dmSans.variable} font-dmsans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false} storageKey="portfolio-theme">
           <div className="flex flex-col min-h-screen">
             <Navbar />
