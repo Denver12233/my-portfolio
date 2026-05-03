@@ -2,8 +2,8 @@
   {
     "id": "1",
     "title": "Sillag",
-    "description": "A high-performance e-commerce platform with a focus on minimalist design and lightning-fast checkout.",
-    "contribution": "Architected the frontend using Next.js 14 and optimized checkout performance by 40% through server-side state management.",
+    "description": " platform that allows researchers to mint and verify ownership of their research work through smart contracts, ensuring authenticity and intellectual property protection.",
+    "contribution": "Started as a Backend Developer handling server-side logic and APIs, then transitioned to Full-Stack as the project matured — contributing to both the frontend UI and backend architecture.",
     "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
     "category": "Web Application",
     "techStack": [
@@ -20,8 +20,8 @@
     "id": "2",
     "title": "Promptgraph",
     "description": "Contributed to ongoing maintenance, bug fixes, and feature improvements of an enterprise analytics dashboard.",
-    "contribution": "Led the refactoring of 20+ legacy components to TypeScript and implemented real-time data visualization using D3.js.",
-    "imageUrl": "https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=1000&auto=format&fit=crop",
+    "contribution": "Contributed to ongoing UI improvements, bug fixes, and feature enhancements to improve the overall user experience of the dashboard.",
+    "imageUrl": "https://app.promptgraph.ai/logo-svg.svg",
     "category": "Web Application",
     "techStack": [
       "Next.js",
