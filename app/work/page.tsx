@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getProjects } from "@/lib/getProjects";
 import { FilterableGallery } from "@/components/sections/FilterableGallery";
 import { SectionLabel } from "@/components/atoms/SectionLabel";

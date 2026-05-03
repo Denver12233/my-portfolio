@@ -9,8 +9,6 @@ import { isLog } from "./validators";
 const LOGS_PATH = path.join(process.cwd(), "content/logs");
 
 export const getAllLogs = async (): Promise<Log[]> => {
-  // Simulate delay for loading states
-  await new Promise(resolve => setTimeout(resolve, 1000));
   
   if (!fs.existsSync(LOGS_PATH)) return [];
 
@@ -39,8 +37,6 @@ export const getAllLogs = async (): Promise<Log[]> => {
 };
 
 export const getLogBySlug = async (slug: string): Promise<(Log & { html: string }) | null> => {
-  // Simulate delay for loading states
-  await new Promise(resolve => setTimeout(resolve, 1000));
   
   try {
     const fullPath = path.join(LOGS_PATH, `${slug}.md`);

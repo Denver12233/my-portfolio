@@ -6,8 +6,6 @@ import { isProject } from "./validators";
 const DATA_PATH = path.join(process.cwd(), "data/projects.json");
 
 export const getProjects = async (): Promise<Project[]> => {
-  // Simulate delay for loading states
-  await new Promise(resolve => setTimeout(resolve, 1000));
   
   try {
     if (!fs.existsSync(DATA_PATH)) return [];

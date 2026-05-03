@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getAllLogs } from "@/lib/getLogs";
 import { AnimatedSection } from "@/components/atoms/AnimatedSection";
 import { LogsGrid } from "./LogsGrid";
