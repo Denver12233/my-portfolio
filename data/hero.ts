@@ -21,7 +21,7 @@ export const heroData: HeroData = {
     { text: "Developer", variant: "default" },
     { text: "Intern @ MIH", variant: "accent" },
   ],
-  subtitle: "Currently refining my craft at MakerSpace InnoHub, building intentional web experiences through clean code and purposeful design.",
+  subtitle: "Currently refining my craft at MakerSpace InnovHub, building intentional web experiences through clean code and purposeful design.",
   images: ["/profile.jpg", "/profile2.jpg"],
   stats: [
     { value: "2", label: "Projects" },
