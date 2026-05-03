@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="border-t border-neutral-100 dark:border-zinc-800">
       <div className="px-6 py-20 max-w-6xl mx-auto">
@@ -14,31 +14,31 @@ export const Footer = () => {
                 Denver<span className="text-accent-600">.</span>
               </h3>
               <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xs">
-                Frontend Developer intern at MakerSpace InnovHub, building clean and purposeful web experiences.
+                Developer intern at MakerSpace InnoHub, building clean and purposeful web experiences.
               </p>
             </div>
-            
+
             <div className="flex gap-3">
-              <a 
-                href="https://github.com/Denver12233" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/Denver12233"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full border border-neutral-200 dark:border-zinc-800 flex items-center justify-center text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:border-accent-600 hover:text-accent-600 transition-all"
                 aria-label="GitHub"
               >
                 GH
               </a>
-              <a 
-                href="https://www.linkedin.com/in/tandingan-denver-m-374910392/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.linkedin.com/in/tandingan-denver-m-374910392/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full border border-neutral-200 dark:border-zinc-800 flex items-center justify-center text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:border-accent-600 hover:text-accent-600 transition-all"
                 aria-label="LinkedIn"
               >
                 LI
               </a>
-              <a 
-                href="mailto:tandingandenverm@gmail.com" 
+              <a
+                href="mailto:tandingandenverm@gmail.com"
                 className="w-9 h-9 rounded-full border border-neutral-200 dark:border-zinc-800 flex items-center justify-center text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:border-accent-600 hover:text-accent-600 transition-all"
                 aria-label="Email"
               >
