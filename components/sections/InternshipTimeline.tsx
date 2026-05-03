@@ -1,22 +1,34 @@
+import fs from "fs";
+import path from "path";
 import { SectionLabel } from "../ui/SectionLabel";
 import { TimelineItem } from "../cards/TimelineItem";
 import { AnimatedSection } from "../ui/AnimatedSection";
 import { StaggerContainer } from "../ui/StaggerContainer";
 import { StaggerItem } from "../ui/StaggerItem";
 
+// ── Read timeline data from local JSON (data-driven, PRD-compliant) ──
+interface TimelineEntry {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string[];
+  current: boolean;
+}
+
+function getTimeline(): TimelineEntry[] {
+  const filePath = path.join(process.cwd(), "content/timeline.json");
+  try {
+    const raw = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(raw) as TimelineEntry[];
+  } catch {
+    return [];
+  }
+}
+
 export const InternshipTimeline = () => {
-  const items = [
-    {
-      period: "Jan 2024 - Present",
-      title: "Frontend Developer Intern @ TechStream",
-      description: "Implementing core UI components for the main dashboard product. Optimizing client-side performance and ensuring strict TypeScript compliance."
-    },
-    {
-      period: "Jun 2023 - Dec 2023",
-      title: "UI/UX Design Intern @ Creative Minds",
-      description: "Designed high-fidelity prototypes for mobile applications. Collaborated with engineers to bridge the gap between Figma and production code."
-    }
-  ];
+  const items = getTimeline();
 
   return (
     <AnimatedSection className="py-20">
@@ -24,8 +36,15 @@ export const InternshipTimeline = () => {
         <SectionLabel eyebrow="Experience" heading="Career Journey" />
         <StaggerContainer className="space-y-12">
           {items.map((item, i) => (
-            <StaggerItem key={i}>
-              <TimelineItem item={item} isCurrent={i === 0} />
+            <StaggerItem key={item.id}>
+              <TimelineItem
+                item={{
+                  period: item.period,
+                  title: `${item.title} @ ${item.company}`,
+                  description: item.description.join(" "),
+                }}
+                isCurrent={item.current}
+              />
             </StaggerItem>
           ))}
         </StaggerContainer>

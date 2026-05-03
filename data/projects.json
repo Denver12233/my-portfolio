@@ -1,35 +1,33 @@
 [
   {
-    "id": "project-001",
-    "title": "Aura Commerce",
-    "description": "High-performance headless e-commerce built with Next.js and Stripe integration.",
-    "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-    "category": "Frontend",
-    "completionDate": "2025-05-01",
-    "featured": true,
-    "githubUrl": "https://github.com/denver/aura-commerce",
-    "liveUrl": "https://aura-commerce.demo",
-    "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop"
+    "id": "1",
+    "title": "Sillag",
+    "description": "A high-performance e-commerce platform with a focus on minimalist design and lightning-fast checkout.",
+    "thumbnail": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
+    "category": "Web Application",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "Tailwind CSS"
+    ],
+    "link": "https://sillag.demo",
+    "github": "https://github.com/denver/sillag",
+    "featured": true
   },
   {
-    "id": "project-002",
-    "title": "Zenith Analytics",
-    "description": "Modern SaaS dashboard design system with real-time data visualization concepts.",
-    "techStack": ["Figma", "React", "D3.js", "Framer Motion"],
-    "category": "UI/UX",
-    "completionDate": "2024-11-20",
-    "featured": true,
-    "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    "id": "project-003",
-    "title": "Eco-Tracker App",
-    "description": "Mobile application concept for tracking personal carbon footprints.",
-    "techStack": ["React Native", "Firebase", "Expo"],
-    "category": "Mobile",
-    "completionDate": "2025-01-10",
-    "featured": false,
-    "githubUrl": "https://github.com/denver/eco-tracker",
-    "imageUrl": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop"
+    "id": "2",
+    "title": "Promptgraph",
+    "description": "Contributed to ongoing maintenance, bug fixes, and feature improvements of an enterprise analytics dashboard.",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=1000&auto=format&fit=crop",
+    "category": "UI/UX Design",
+    "techStack": [
+      "React",
+      "D3.js",
+      "Framer Motion",
+      "Figma"
+    ],
+    "link": "https://promptgraph.demo",
+    "featured": true
   }
 ]

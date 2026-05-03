@@ -10,11 +10,7 @@ import {
   getFadeUpVariantWithDelay,
   getFadeUpVariant
 } from "@/lib/animations";
-
-const PROFILE_IMAGES = [
-  "/profile.jpg",
-  "/profile2.jpg",
-];
+import { heroData } from "@/data/hero";
 
 const crossfadeVariants: Variants = {
   hidden: { opacity: 0 },
@@ -31,7 +27,7 @@ export const HeroSection = () => {
     if (isHovered || shouldReduceMotion) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % PROFILE_IMAGES.length);
+      setCurrentIndex((prev) => (prev + 1) % heroData.images.length);
     }, 3500);
 
     return () => clearInterval(interval);
@@ -54,7 +50,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariant(shouldReduceMotion)}
               className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-600 dark:text-accent-400 mb-5 block"
             >
-              Internship Portfolio 2026
+              {heroData.label}
             </motion.span>
 
             <h1 className="font-plusJakarta font-extrabold tracking-[-0.04em] mb-5 leading-none flex flex-col md:block">
@@ -64,7 +60,7 @@ export const HeroSection = () => {
                 variants={getSlideLeftVariant(shouldReduceMotion)}
                 className="text-[clamp(3.2rem,9vw,5.8rem)] leading-[0.92] block text-neutral-900 dark:text-white"
               >
-                Denver
+                {heroData.firstName}
               </motion.span>
               <motion.span
                 initial="hidden"
@@ -72,7 +68,7 @@ export const HeroSection = () => {
                 variants={getSlideRightVariant(shouldReduceMotion)}
                 className="text-[clamp(2.3rem,6.5vw,4.2rem)] leading-[0.95] block text-accent-500"
               >
-                Tandingan.
+                {heroData.lastName}
               </motion.span>
             </h1>
 
@@ -82,12 +78,18 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.2)}
               className="flex flex-wrap gap-2 justify-center md:justify-start mb-6"
             >
-              <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-neutral-100 dark:bg-zinc-800 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-zinc-700">
-                Developer
-              </span>
-              <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full bg-accent-50 dark:bg-accent-950 text-accent-700 dark:text-accent-300 border border-accent-200 dark:border-accent-800">
-                Intern @ MIH
-              </span>
+              {heroData.badges.map((badge, idx) => (
+                <span
+                  key={idx}
+                  className={`text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border ${
+                    badge.variant === "accent"
+                      ? "bg-accent-50 dark:bg-accent-950 text-accent-700 dark:text-accent-300 border-accent-200 dark:border-accent-800"
+                      : "bg-neutral-100 dark:bg-zinc-800 text-neutral-600 dark:text-neutral-400 border-neutral-200 dark:border-zinc-700"
+                  }`}
+                >
+                  {badge.text}
+                </span>
+              ))}
             </motion.div>
 
             <motion.p
@@ -96,7 +98,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.3)}
               className="text-lg text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto md:mx-0 font-light leading-relaxed"
             >
-              Building real-world web experiences through clean code and intentional design.
+              {heroData.subtitle}
             </motion.p>
 
             <motion.div
@@ -134,18 +136,12 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.5)}
               className="flex gap-10 justify-center md:justify-start mt-10 pt-8 border-t border-neutral-100 dark:border-zinc-800"
             >
-              <div>
-                <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">4+</div>
-                <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">Projects</div>
-              </div>
-              <div>
-                <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">10+</div>
-                <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">Weeks</div>
-              </div>
-              <div>
-                <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">5+</div>
-                <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">Technologies</div>
-              </div>
+              {heroData.stats.map((stat, idx) => (
+                <div key={idx}>
+                  <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">{stat.value}</div>
+                  <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
 
@@ -164,62 +160,77 @@ export const HeroSection = () => {
               {/* Accent gradient behind photo */}
               <div className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-br from-accent-400/20 to-accent-600/5 rotate-3 scale-[1.02] -z-10" />
 
-              {/* Photo Container: strict sizing limits CLS to 0 */}
+              {/* Photo Container */}
               <div className="w-full h-full rounded-[1.5rem] overflow-hidden shadow-xl ring-1 ring-neutral-200 dark:ring-zinc-700 relative bg-neutral-100 dark:bg-zinc-800">
                 
-                {/* 5. mode="wait" ensures safe DOM transitions. Fallback instantly switches if prefers-reduced-motion */}
                 <AnimatePresence mode="wait">
                   {!shouldReduceMotion ? (
                     <motion.div
-                      key={currentIndex % PROFILE_IMAGES.length}
+                      key={currentIndex % heroData.images.length}
                       variants={crossfadeVariants}
                       initial="hidden"
                       animate="visible"
                       exit="exit"
                       className="absolute inset-0"
                     >
-                      {/* Fixed sizing with object-fit guarantees 0 layout shifts */}
-                      <Image
-                        src={PROFILE_IMAGES[currentIndex % PROFILE_IMAGES.length] || PROFILE_IMAGES[0]}
-                        alt={`Profile photo ${(currentIndex % PROFILE_IMAGES.length) + 1}`}
-                        fill
-                        className="object-cover object-top grayscale-[15%] brightness-[1.03]"
-                        priority={currentIndex % PROFILE_IMAGES.length === 0}
-                      />
+                      <motion.div
+                        className="w-full h-full"
+                        animate={{ 
+                          scale: isHovered ? 1.02 : 1.05 
+                        }}
+                        transition={{ 
+                          duration: 3.5, 
+                          ease: "linear" 
+                        }}
+                      >
+                        <Image
+                          src={heroData.images[currentIndex % heroData.images.length] || heroData.images[0]}
+                          alt={`Profile photo ${(currentIndex % heroData.images.length) + 1}`}
+                          fill
+                          className="object-cover object-top grayscale-[15%] brightness-[1.03]"
+                          priority={currentIndex % heroData.images.length === 0}
+                        />
+                      </motion.div>
                     </motion.div>
                   ) : (
-                    <div key={currentIndex % PROFILE_IMAGES.length} className="absolute inset-0">
+                    <div key={currentIndex % heroData.images.length} className="absolute inset-0">
                       <Image
-                        src={PROFILE_IMAGES[currentIndex % PROFILE_IMAGES.length] || PROFILE_IMAGES[0]}
-                        alt={`Profile photo ${(currentIndex % PROFILE_IMAGES.length) + 1}`}
+                        src={heroData.images[currentIndex % heroData.images.length] || heroData.images[0]}
+                        alt={`Profile photo ${(currentIndex % heroData.images.length) + 1}`}
                         fill
                         className="object-cover object-top grayscale-[15%] brightness-[1.03]"
-                        priority={currentIndex % PROFILE_IMAGES.length === 0}
+                        priority={currentIndex % heroData.images.length === 0}
                       />
                     </div>
                   )}
                 </AnimatePresence>
 
-                {/* Indicators */}
-                <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
-                  {PROFILE_IMAGES.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition-colors ${idx === (currentIndex % PROFILE_IMAGES.length) ? "bg-accent-500" : "bg-white/50 hover:bg-white/90"
-                        }`}
-                      aria-label={`Go to image ${idx + 1}`}
-                    />
-                  ))}
+                {/* Indicators with progress bar */}
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-10">
+                  {heroData.images.map((_, idx) => {
+                    const isActive = idx === (currentIndex % heroData.images.length);
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        className="relative w-8 h-1 rounded-full bg-white/30 overflow-hidden"
+                        aria-label={`Go to image ${idx + 1}`}
+                      >
+                        {isActive && (
+                          <motion.div
+                            initial={{ width: "0%" }}
+                            animate={isHovered ? {} : { width: "100%" }}
+                            transition={{ 
+                              duration: 3.5, 
+                              ease: "linear" 
+                            }}
+                            className="h-full bg-accent-500"
+                          />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -bottom-5 left-3 z-20 bg-white dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-700 rounded-2xl px-3 py-2 shadow-lg flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-accent-500 animate-pulse flex-shrink-0" />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-300 whitespace-nowrap">
-                  Open to work
-                </span>
               </div>
             </div>
           </motion.div>

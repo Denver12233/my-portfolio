@@ -1,28 +1,15 @@
 [
   {
     "id": "1",
-    "title": "Frontend Developer Intern",
-    "company": "TechStream Solutions",
-    "location": "Remote",
-    "period": "Jan 2024 - Present",
+    "title": "Developer Intern",
+    "company": "MakerSpace InnoHub",
+    "location": "Mapandan, Pangasinan, PH",
+    "period": "2026 - Present",
     "description": [
-      "Building responsive UI components using Next.js and Tailwind CSS.",
-      "Collaborating with designers to translate Figma mockups into production-ready code.",
-      "Optimizing application performance, achieving a 20% reduction in LCP."
+      "Built  Sillag, a high-performance e-commerce platform using Next.js and Tailwind CSS.",
+      "Contributed to Promptgraph's ongoing development through bug fixes and feature improvements.",
+      "Developed this internship portfolio as a final output — a data-driven Next.js app following SOLID principles."
     ],
     "current": true
-  },
-  {
-    "id": "2",
-    "title": "UI/UX Design Intern",
-    "company": "Creative Minds Studio",
-    "location": "Manila, PH",
-    "period": "Jun 2023 - Dec 2023",
-    "description": [
-      "Designed wireframes and high-fidelity prototypes for mobile applications.",
-      "Conducted user research and usability testing to iterate on design solutions.",
-      "Maintained and expanded the internal design system."
-    ],
-    "current": false
   }
 ]
