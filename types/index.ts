@@ -2,13 +2,14 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  contribution: string; // New field for depth/storytelling
   techStack: string[];
-  category: "Frontend" | "UI/UX" | "Research" | "SEO Audit" | "Mobile";
+  category: "Web Application" | "UI/UX Design" | "Frontend" | "Research" | "Mobile" | "SEO Audit";
   completionDate: string;
   featured: boolean;
-  githubUrl?: string;
-  liveUrl?: string;
-  imageUrl?: string;
+  githubUrl: string | null;
+  liveUrl: string | null;
+  imageUrl: string | null;
 }
 
 export interface Log {

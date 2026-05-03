@@ -1,5 +1,6 @@
 import { getLogBySlug, getAllLogs } from "@/lib/getLogs";
-import { Badge } from "@/components/ui/Badge";
+import { Badge } from "@/components/atoms/Badge";
+
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -14,7 +15,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const dynamic = "force-dynamic";
+// Dynamic rendering removed to enable SSG via generateStaticParams
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;

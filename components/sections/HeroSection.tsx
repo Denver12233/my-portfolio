@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "../ui/Button";
+import { Button } from "../atoms/Button";
 import { motion, useReducedMotion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
@@ -10,7 +10,7 @@ import {
   getFadeUpVariantWithDelay,
   getFadeUpVariant
 } from "@/lib/animations";
-import { heroData } from "@/data/hero";
+import { HeroData } from "@/data/hero";
 
 const crossfadeVariants: Variants = {
   hidden: { opacity: 0 },
@@ -18,7 +18,11 @@ const crossfadeVariants: Variants = {
   exit: { opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }
 };
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  data: HeroData;
+}
+
+export const HeroSection = ({ data }: HeroSectionProps) => {
   const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -27,11 +31,11 @@ export const HeroSection = () => {
     if (isHovered || shouldReduceMotion) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroData.images.length);
+      setCurrentIndex((prev) => (prev + 1) % data.images.length);
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [isHovered, shouldReduceMotion]);
+  }, [isHovered, shouldReduceMotion, data.images.length]);
 
   return (
     <section className="relative pt-24 pb-20 overflow-x-clip">
@@ -50,7 +54,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariant(shouldReduceMotion)}
               className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-600 dark:text-accent-400 mb-5 block"
             >
-              {heroData.label}
+              {data.label}
             </motion.span>
 
             <h1 className="font-plusJakarta font-extrabold tracking-[-0.04em] mb-5 leading-none flex flex-col md:block">
@@ -60,7 +64,7 @@ export const HeroSection = () => {
                 variants={getSlideLeftVariant(shouldReduceMotion)}
                 className="text-[clamp(3.2rem,9vw,5.8rem)] leading-[0.92] block text-neutral-900 dark:text-white"
               >
-                {heroData.firstName}
+                {data.firstName}
               </motion.span>
               <motion.span
                 initial="hidden"
@@ -68,7 +72,7 @@ export const HeroSection = () => {
                 variants={getSlideRightVariant(shouldReduceMotion)}
                 className="text-[clamp(2.3rem,6.5vw,4.2rem)] leading-[0.95] block text-accent-500"
               >
-                {heroData.lastName}
+                {data.lastName}
               </motion.span>
             </h1>
 
@@ -78,7 +82,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.2)}
               className="flex flex-wrap gap-2 justify-center md:justify-start mb-6"
             >
-              {heroData.badges.map((badge, idx) => (
+              {data.badges.map((badge, idx) => (
                 <span
                   key={idx}
                   className={`text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border ${
@@ -98,7 +102,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.3)}
               className="text-lg text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto md:mx-0 font-light leading-relaxed"
             >
-              {heroData.subtitle}
+              {data.subtitle}
             </motion.p>
 
             <motion.div
@@ -136,7 +140,7 @@ export const HeroSection = () => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.5)}
               className="flex gap-10 justify-center md:justify-start mt-10 pt-8 border-t border-neutral-100 dark:border-zinc-800"
             >
-              {heroData.stats.map((stat, idx) => (
+              {data.stats.map((stat, idx) => (
                 <div key={idx}>
                   <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">{stat.value}</div>
                   <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
@@ -166,7 +170,7 @@ export const HeroSection = () => {
                 <AnimatePresence mode="wait">
                   {!shouldReduceMotion ? (
                     <motion.div
-                      key={currentIndex % heroData.images.length}
+                      key={currentIndex % data.images.length}
                       variants={crossfadeVariants}
                       initial="hidden"
                       animate="visible"
@@ -184,22 +188,22 @@ export const HeroSection = () => {
                         }}
                       >
                         <Image
-                          src={heroData.images[currentIndex % heroData.images.length] || heroData.images[0]}
-                          alt={`Profile photo ${(currentIndex % heroData.images.length) + 1}`}
+                          src={data.images[currentIndex % data.images.length] || data.images[0]}
+                          alt={`Profile photo ${(currentIndex % data.images.length) + 1}`}
                           fill
                           className="object-cover object-top grayscale-[15%] brightness-[1.03]"
-                          priority={currentIndex % heroData.images.length === 0}
+                          priority={currentIndex % data.images.length === 0}
                         />
                       </motion.div>
                     </motion.div>
                   ) : (
-                    <div key={currentIndex % heroData.images.length} className="absolute inset-0">
+                    <div key={currentIndex % data.images.length} className="absolute inset-0">
                       <Image
-                        src={heroData.images[currentIndex % heroData.images.length] || heroData.images[0]}
-                        alt={`Profile photo ${(currentIndex % heroData.images.length) + 1}`}
+                        src={data.images[currentIndex % data.images.length] || data.images[0]}
+                        alt={`Profile photo ${(currentIndex % data.images.length) + 1}`}
                         fill
                         className="object-cover object-top grayscale-[15%] brightness-[1.03]"
-                        priority={currentIndex % heroData.images.length === 0}
+                        priority={currentIndex % data.images.length === 0}
                       />
                     </div>
                   )}
@@ -207,8 +211,8 @@ export const HeroSection = () => {
 
                 {/* Indicators with progress bar */}
                 <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-10">
-                  {heroData.images.map((_, idx) => {
-                    const isActive = idx === (currentIndex % heroData.images.length);
+                  {data.images.map((_, idx) => {
+                    const isActive = idx === (currentIndex % data.images.length);
                     return (
                       <button
                         key={idx}

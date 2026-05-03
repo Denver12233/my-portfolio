@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Log } from "@/types";
-import { Badge } from "../ui/Badge";
+import { Badge } from "../atoms/Badge";
 
 export const LogCard = ({ log }: { log: Log }) => {
   return (

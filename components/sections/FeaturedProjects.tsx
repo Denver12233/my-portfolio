@@ -1,10 +1,10 @@
 import { getFeaturedProjects } from "@/lib/getProjects";
-import { ProjectCard } from "../cards/ProjectCard";
-import { SectionLabel } from "../ui/SectionLabel";
-import { Button } from "../ui/Button";
-import { AnimatedSection } from "../ui/AnimatedSection";
-import { StaggerContainer } from "../ui/StaggerContainer";
-import { StaggerItem } from "../ui/StaggerItem";
+import { ProjectCard } from "../molecules/ProjectCard";
+import { SectionLabel } from "../atoms/SectionLabel";
+import { Button } from "../atoms/Button";
+import { AnimatedSection } from "../atoms/AnimatedSection";
+import { StaggerContainer } from "../atoms/StaggerContainer";
+import { StaggerItem } from "../atoms/StaggerItem";
 
 export const FeaturedProjects = async () => {
   const projects = await getFeaturedProjects();

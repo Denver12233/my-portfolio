@@ -1,13 +1,13 @@
 import { getProjects } from "@/lib/getProjects";
 import { FilterableGallery } from "@/components/sections/FilterableGallery";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionLabel } from "@/components/atoms/SectionLabel";
+
 
 export const metadata = {
   title: "Work",
   description: "A showcase of my frontend development and UI/UX design projects.",
 };
 
-export const dynamic = "force-dynamic";
 
 export default async function WorkPage() {
   const projects = await getProjects();
@@ -17,7 +17,7 @@ export default async function WorkPage() {
 
   return (
     <div className="container mx-auto px-6 py-20 max-w-5xl">
-      <SectionLabel eyebrow="Archive" heading="Selected Work" />
+      <SectionLabel eyebrow="ARCHIVE" heading="Selected Work" />
       <FilterableGallery 
         projects={projects} 
         categories={categories} 

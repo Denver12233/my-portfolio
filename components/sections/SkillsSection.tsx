@@ -1,9 +1,9 @@
 import { getSkills } from "@/lib/getSkills";
-import { SkillBar } from "../ui/SkillBar";
-import { SectionLabel } from "../ui/SectionLabel";
-import { AnimatedSection } from "../ui/AnimatedSection";
-import { StaggerContainer } from "../ui/StaggerContainer";
-import { StaggerItem } from "../ui/StaggerItem";
+import { SkillBar } from "../atoms/SkillBar";
+import { SectionLabel } from "../atoms/SectionLabel";
+import { AnimatedSection } from "../atoms/AnimatedSection";
+import { StaggerContainer } from "../atoms/StaggerContainer";
+import { StaggerItem } from "../atoms/StaggerItem";
 
 export const SkillsSection = async () => {
   const skills = await getSkills();

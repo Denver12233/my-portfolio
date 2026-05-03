@@ -1,16 +1,15 @@
 import { getAllLogs } from "@/lib/getLogs";
-import { LogCard } from "@/components/cards/LogCard";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { StaggerContainer } from "@/components/ui/StaggerContainer";
-import { StaggerItem } from "@/components/ui/StaggerItem";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { LogCard } from "@/components/molecules/LogCard";
+import { SectionLabel } from "@/components/atoms/SectionLabel";
+import { StaggerContainer } from "@/components/atoms/StaggerContainer";
+import { StaggerItem } from "@/components/atoms/StaggerItem";
+import { AnimatedSection } from "@/components/atoms/AnimatedSection";
 
 export const metadata = {
   title: "Logs",
   description: "Weekly internship logs and learning reflections.",
 };
 
-export const dynamic = "force-dynamic";
 
 export default async function LogsPage() {
   const logs = await getAllLogs();

@@ -1,7 +1,7 @@
 [
   {
     "name": "Next.js",
-    "proficiency": 100
+    "proficiency": 90
   },
   {
     "name": "TypeScript",
@@ -16,11 +16,7 @@
     "proficiency": 92
   },
   {
-    "name": "Figma",
+    "name": "Php",
     "proficiency": 85
-  },
-  {
-    "name": "SEO Strategy",
-    "proficiency": 80
   }
 ]
