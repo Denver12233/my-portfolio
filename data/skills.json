@@ -1,22 +1,22 @@
 [
   {
     "name": "Next.js",
-    "proficiency": 90
+    "proficiency": 75
   },
   {
     "name": "TypeScript",
-    "proficiency": 90
+    "proficiency": 70
   },
   {
     "name": "Tailwind CSS",
-    "proficiency": 98
+    "proficiency": 70
   },
   {
     "name": "React",
-    "proficiency": 92
+    "proficiency": 80
   },
   {
     "name": "Php",
-    "proficiency": 85
+    "proficiency": 75
   }
 ]

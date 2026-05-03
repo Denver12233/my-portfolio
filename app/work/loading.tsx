@@ -1,3 +1,5 @@
+import projects from "@/data/projects.json";
+
 export default function WorkLoading() {
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -10,7 +12,7 @@ export default function WorkLoading() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(6)].map((_, i) => (
+          {Array.from({ length: projects.length }).map((_, i) => (
             <div key={i} className="bg-neutral-100 dark:bg-zinc-900 rounded-2xl overflow-hidden animate-pulse">
               <div className="h-52 bg-neutral-200 dark:bg-zinc-800" />
               <div className="p-5 space-y-3">
