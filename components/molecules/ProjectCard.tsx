@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export const ProjectCard = ({ project }: { project: Project }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isContributionVisible, setIsContributionVisible] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const cardVariants = {
@@ -39,6 +40,14 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     }
   };
 
+  const handleImageClick = (e: React.MouseEvent) => {
+    // Only toggle on mobile (md breakpoint is 768px)
+    if (window.innerWidth < 768) {
+      e.stopPropagation();
+      setIsContributionVisible(!isContributionVisible);
+    }
+  };
+
   return (
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
@@ -50,7 +59,10 @@ export const ProjectCard = ({ project }: { project: Project }) => {
       className={`group bg-white dark:bg-zinc-900/90 rounded-[2.5rem] border border-neutral-200 dark:border-zinc-800 shadow-sm hover:shadow-2xl hover:border-accent-600/30 dark:hover:border-accent-400/30 transition-all duration-500 overflow-hidden flex flex-col h-full ${project.liveUrl ? 'cursor-pointer' : ''}`}
     >
       {/* Expanded Image Area */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      <div 
+        className="relative w-full aspect-[16/9] overflow-hidden cursor-pointer md:cursor-default"
+        onClick={handleImageClick}
+      >
         {project.imageUrl ? (
           <>
             <motion.div
@@ -67,8 +79,15 @@ export const ProjectCard = ({ project }: { project: Project }) => {
               />
             </motion.div>
 
-            {/* Dark Overlay on Hover */}
-            <div className={`absolute inset-0 bg-neutral-900/80 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+            {/* Mobile Hint - Visible when overlay is hidden */}
+            {!isContributionVisible && (
+              <div className="absolute bottom-4 left-4 md:hidden z-20 px-3 py-1.5 bg-neutral-900/40 backdrop-blur-md border border-white/10 text-white text-[8px] font-black uppercase tracking-widest rounded-full opacity-60">
+                Tap to explore
+              </div>
+            )}
+
+            {/* Dark Overlay on Hover/Mobile Toggle */}
+            <div className={`absolute inset-0 bg-neutral-900/80 transition-opacity duration-500 ${(isHovered || isContributionVisible) ? 'opacity-100' : 'opacity-0'}`} />
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-zinc-800 dark:to-zinc-900 flex items-center justify-center p-6" />
@@ -77,7 +96,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         {/* Contribution Overlay */}
         <div className="absolute inset-0 p-8 flex flex-col justify-end pointer-events-none">
           <AnimatePresence>
-            {isHovered && (
+            {(isHovered || isContributionVisible) && (
               <motion.div
                 initial="hidden"
                 animate="visible"
