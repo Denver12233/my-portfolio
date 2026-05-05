@@ -30,5 +30,5 @@ export interface Skill {
 export interface TimelineItem {
   period: string;
   title: string;
-  description: string;
+  description: string[];
 }

@@ -4,11 +4,11 @@
     "title": "Developer Intern",
     "company": "MakerSpace InnovHub",
     "location": "Mapandan, Pangasinan, PH",
-    "period": "2026 - Present",
+    "period": "Feb 2026 - Present",
     "description": [
-      "Built Sillag, a research minting platform using Next.js, MongoDB, and smart contracts — starting as a Backend Developer handling database architecture and map/filter features, then transitioning to Full-Stack handling dashboards, cohort management, and multi-role announcement systems.",
-      "Contributed to PromptGraph's UI improvements, AI Tracker audits, query result refactoring, and QueryDetailsTable enhancements.",
-      "Developed this internship portfolio as a final output — a data-driven Next.js app built following SOLID principles and Lego-style component architecture."
+      "Feb – Apr 2026: Built Sillag, a research minting platform using Next.js, MongoDB, and smart contracts — starting as a Backend Developer handling database architecture, map/filter features, and data visualization, then transitioning to Full-Stack handling dashboard redesigns, cohort management, and multi-role announcement systems.",
+      "Apr – May 2026: Contributed to PromptGraph's ongoing development — conducting AI Tracker audits, refactoring query result ordering, enhancing the QueryDetailsTable with timestamps and filters, and creating a PG Tiering proposal.",
+      "May 2026: Developed this internship portfolio as a final output — a data-driven Next.js app built following SOLID principles and Lego-style component architecture."
     ],
     "current": true
   }

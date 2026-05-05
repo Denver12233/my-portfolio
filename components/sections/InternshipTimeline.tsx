@@ -60,7 +60,7 @@ export const InternshipTimeline = () => {
                 item={{
                   period: item.period,
                   title: `${item.title} @ ${item.company}`,
-                  description: item.description.join(" "),
+                  description: item.description,
                 }}
                 isCurrent={item.current}
               />
