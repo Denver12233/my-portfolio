@@ -58,22 +58,12 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
             </motion.span>
 
             <h1 className="font-plusJakarta font-extrabold tracking-[-0.04em] mb-5 leading-none flex flex-col md:block">
-              <motion.span
-                initial="hidden"
-                animate="visible"
-                variants={getSlideLeftVariant(shouldReduceMotion)}
-                className="text-[clamp(3.2rem,9vw,5.8rem)] leading-[0.92] block text-neutral-900 dark:text-white"
-              >
+              <span className="text-[clamp(3.2rem,9vw,5.8rem)] leading-[0.92] block text-neutral-900 dark:text-white">
                 {data.firstName}
-              </motion.span>
-              <motion.span
-                initial="hidden"
-                animate="visible"
-                variants={getSlideRightVariant(shouldReduceMotion)}
-                className="text-[clamp(2.3rem,6.5vw,4.2rem)] leading-[0.95] block text-accent-500"
-              >
+              </span>
+              <span className="text-[clamp(2.3rem,6.5vw,4.2rem)] leading-[0.95] block text-accent-500">
                 {data.lastName}
-              </motion.span>
+              </span>
             </h1>
 
             <motion.div
@@ -96,14 +86,9 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
               ))}
             </motion.div>
 
-            <motion.p
-              initial="hidden"
-              animate="visible"
-              variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.3)}
-              className="text-lg text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto md:mx-0 font-light leading-relaxed"
-            >
+            <p className="text-lg text-neutral-500 dark:text-neutral-400 mb-8 max-w-md mx-auto md:mx-0 font-light leading-relaxed">
               {data.subtitle}
-            </motion.p>
+            </p>
 
             <motion.div
               initial="hidden"
@@ -151,7 +136,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
 
           {/* RIGHT — Profile Photo Carousel */}
           <motion.div
-            initial="hidden"
+            initial={false}
             animate="visible"
             variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.6)}
             className="shrink-0 w-full md:w-[280px] flex justify-center mt-8 md:mt-0"
@@ -172,7 +157,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
                     <motion.div
                       key={currentIndex % data.images.length}
                       variants={crossfadeVariants}
-                      initial="hidden"
+                      initial={currentIndex === 0 ? false : "hidden"}
                       animate="visible"
                       exit="exit"
                       className="absolute inset-0"
@@ -194,6 +179,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
                           sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover object-top grayscale-[15%] brightness-[1.03]"
                           priority={currentIndex % data.images.length === 0}
+                          fetchPriority={currentIndex % data.images.length === 0 ? "high" : "auto"}
                         />
                       </motion.div>
                     </motion.div>
@@ -206,6 +192,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover object-top grayscale-[15%] brightness-[1.03]"
                         priority={currentIndex % data.images.length === 0}
+                        fetchPriority={currentIndex % data.images.length === 0 ? "high" : "auto"}
                       />
                     </div>
                   )}
