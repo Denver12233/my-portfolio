@@ -4,24 +4,35 @@ import Image from "next/image";
 import { Project } from "@/types";
 import { Badge } from "../atoms/Badge";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const ProjectCard = ({ project }: { project: Project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isContributionVisible, setIsContributionVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
-  const cardVariants = {
-    hover: { y: shouldReduceMotion ? 0 : -8 }
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
+        setIsContributionVisible(false);
+      }
+    };
 
-  const overlayVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+    if (isContributionVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isContributionVisible]);
 
-  const handleCardClick = () => {
-    if (project.liveUrl) {
+  const handleCardClick = (e: React.MouseEvent) => {
+    // On mobile, clicking the card toggles the overlay
+    if (window.innerWidth < 768) {
+      setIsContributionVisible(!isContributionVisible);
+    } else if (project.liveUrl) {
+      // On desktop, clicking the card opens the link
       window.open(project.liveUrl, "_blank");
     }
   };
@@ -48,8 +59,18 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     }
   };
 
+  const cardVariants = {
+    hover: { y: shouldReduceMotion ? 0 : -8 }
+  };
+
+  const overlayVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <motion.div
+      ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover="hover"
@@ -68,13 +89,13 @@ export const ProjectCard = ({ project }: { project: Project }) => {
             <motion.div
               animate={{ scale: isHovered ? 1.05 : 1 }}
               transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-              className="w-full h-full relative"
+              className="w-full h-full relative bg-white"
             >
               <Image
                 src={project.imageUrl}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-100"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
