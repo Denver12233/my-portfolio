@@ -178,7 +178,7 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
                       className="absolute inset-0"
                     >
                       <motion.div
-                        className="w-full h-full"
+                        className="relative w-full h-full"
                         animate={{ 
                           scale: isHovered ? 1.02 : 1.05 
                         }}
@@ -191,17 +191,19 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
                           src={data.images[currentIndex % data.images.length] || data.images[0]}
                           alt={`Profile photo ${(currentIndex % data.images.length) + 1}`}
                           fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
                           className="object-cover object-top grayscale-[15%] brightness-[1.03]"
                           priority={currentIndex % data.images.length === 0}
                         />
                       </motion.div>
                     </motion.div>
                   ) : (
-                    <div key={currentIndex % data.images.length} className="absolute inset-0">
+                    <div key={currentIndex % data.images.length} className="relative w-full h-full">
                       <Image
                         src={data.images[currentIndex % data.images.length] || data.images[0]}
                         alt={`Profile photo ${(currentIndex % data.images.length) + 1}`}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover object-top grayscale-[15%] brightness-[1.03]"
                         priority={currentIndex % data.images.length === 0}
                       />
