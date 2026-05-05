@@ -1,10 +1,29 @@
-﻿---
-title: "Week 7 – Polish & Performance"
-date: "2025-03-24"
-excerpt: "Refining animations, improving Lighthouse scores, and final month-one review."
-tags: ["performance", "lighthouse", "optimization"]
+---
+title: "Week 7 – Testing & Quality"
+date: "2025-04-14"
+excerpt: "Improving codebase reliability through unit testing and end-to-end integration."
+tags: ["testing", "jest", "playwright"]
 ---
 
-As I wrap up my first month, my focus shifted to polish and optimization. I spent the week analyzing our Lighthouse scores and addressing bottlenecks in the rendering path. By optimizing our Image components and leveraging Next.js font optimization, we've achieved consistent 95+ scores across the board.
+## Overview
+Quality assurance was the theme for week seven. I spent the week writing unit tests for our utility functions and setting up end-to-end tests for critical user paths.
 
-I also implemented dynamic metadata for our log pages. Each log now has unique SEO titles and descriptions, which is crucial for our visibility. It's been a productive first month, and I'm excited to keep pushing the boundaries of what we can build here.
+## Day 1 — Unit Testing
+Started by writing unit tests for our core utility functions using Vitest. I focused on the data fetching and filtering logic we implemented in week three.
+
+## Day 2 — Component Testing
+Implemented component tests using React Testing Library. I focused on ensuring that our complex molecules behave correctly under different props and states.
+
+## Day 3 — E2E Setup
+Configured Playwright for end-to-end testing. I set up the initial test suite to verify that the main navigation and project pages are accessible and functional.
+
+## Day 4 — Critical Path Tests
+Wrote E2E tests for the contact form submission and theme switching. These tests give us confidence that our most important features won't break during future updates.
+
+## Day 5 — CI Integration
+Integrated our test suite into the CI pipeline. Now, every pull request is automatically checked for regressions before it can be merged.
+
+## Key Takeaways
+- Testing utilities first provides the highest ROI for development time.
+- E2E tests are essential for verifying that disparate parts of the app work together.
+- Automated testing in CI is a game-changer for team confidence.
