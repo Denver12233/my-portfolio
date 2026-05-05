@@ -1,18 +1,18 @@
 [
   {
     "name": "Next.js",
-    "proficiency": 75
+    "proficiency": 85
   },
   {
     "name": "TypeScript",
-    "proficiency": 70
+    "proficiency": 75
   },
   {
     "name": "Tailwind CSS",
-    "proficiency": 70
+    "proficiency": 75
   },
   {
-    "name": "React",
-    "proficiency": 80
+    "name": "MongoDB",
+    "proficiency": 85
   }
 ]
