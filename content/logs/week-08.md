@@ -1,29 +1,41 @@
 ---
-title: "Week 8 – Deployment & Handover"
-date: "2025-04-21"
-excerpt: "Finalizing the production build, deploying to Vercel, and documenting the journey."
-tags: ["deployment", "vercel", "final-review"]
+title: "Week 8 – Mentor Dashboard Features, System Testing, and AI CON X"
+date: "2026-04-06"
+excerpt: "Eighth week at Makerspace InnovHub focused on expanding the mentor dashboard with new features, system-wide testing and UI polish, and attending the AWS AI CON X Highlights meet-up."
+tags: ["mentor-dashboard", "institutions","sillag","testing", "shadcn", "ecosystem", "aws", "fullstack"]
 ---
 
 ## Overview
-The final week of the core development phase. I focused on preparing the production build, deploying the site to Vercel, and documenting everything for the team.
 
-## Day 1 — Production Build
-Ran several production build tests to identify any final issues. I optimized our build scripts and ensured that all assets are correctly minified and cached.
+Week 8 was a well-rounded week that balanced feature development, quality assurance, and professional growth. The mentor dashboard continued to grow with new components, the system underwent testing and UI refinements, and the week wrapped up with an inspiring external event — an AWS meet-up featuring the company's own Assistant Tech Lead as a speaker.
 
-## Day 2 — Deployment Pipeline
-Configured the Vercel deployment pipeline. I set up custom domains and ensured that our environment variables are correctly managed across development and production.
+## Day-by-Day
 
-## Day 3 — Final QA
-Conducted a final round of manual QA on various mobile devices and browsers. I made some last-minute tweaks to the responsive layout of the hero section.
+**April 6 — Send Announcement Feature in the Mentor Dashboard**
 
-## Day 4 — Documentation
-Spent the day writing comprehensive documentation for the project. I covered the architecture, data structures, and the process for adding new log entries.
+The week started by bringing the Send Announcement feature into the mentor dashboard. This extended the announcement capability that had already been built for UniAdmin and SuperAdmin, making sure mentors also have a direct way to communicate with their cohort members from within their own dashboard.
 
-## Day 5 — Graduation & Reflection
-Wrapped up the internship by presenting my work to the team. It's been an incredible journey of learning and growth, and I'm proud of what we've achieved.
+**April 7 — InstitutionsPanel Component Integration**
+
+I built and integrated the InstitutionsPanel component into the mentor dashboard. This gave mentors visibility into the institutions connected to their ecosystem, keeping all the relevant information accessible in one place without having to navigate away from their primary workspace.
+
+**April 8 — System Testing and Identifying Areas for Improvement**
+
+With several new features now in place, this day was dedicated to stepping back and testing the system as a whole. The goal was to look at the platform from a user's perspective — identifying bugs, inconsistencies, and areas where the experience could be improved before moving into the next round of refinements.
+
+**April 10 — UI Polish, ShadCN Integration, and Ecosystem Enhancements**
+
+Acting on the findings from the previous day's testing, I polished the profile viewing experience, improved the UI using the ShadCN library for cleaner and more consistent components, and finalized a set of system-wide ecosystem enhancements. This was a satisfying day of tying loose ends together and pushing the platform's visual and functional quality to a higher standard.
+
+**April 11 — AWS AI CON X Highlights Meet-Up**
+
+The week ended on an exciting note — attending the AWS meet-up "AI CON X Highlights" alongside the company's Assistant Tech Lead, who was one of the featured speakers. It was a great opportunity to step outside the day-to-day development work, learn about the latest in AI and cloud technology, and represent Makerspace InnovHub in the broader tech community.
 
 ## Key Takeaways
-- A smooth deployment process is the result of careful planning and good tooling.
-- Documentation is a gift to your future self and your teammates.
-- Continuous learning is the most important skill in software development.
+
+- Extended the Send Announcement feature to the mentor dashboard
+- Built and integrated the InstitutionsPanel component for mentor visibility
+- Conducted system-wide testing to identify bugs and areas for improvement
+- Polished profile viewing and improved UI consistency using the ShadCN library
+- Finalized ecosystem-wide enhancements for a more cohesive platform experience
+- Attended the AWS AI CON X Highlights meet-up, gaining exposure to the latest in AI and cloud tech

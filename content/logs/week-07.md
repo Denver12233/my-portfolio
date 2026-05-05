@@ -1,29 +1,33 @@
 ---
-title: "Week 7 – Testing & Quality"
-date: "2025-04-14"
-excerpt: "Improving codebase reliability through unit testing and end-to-end integration."
-tags: ["testing", "jest", "playwright"]
+title: "Week 7 – Mentor Dashboard, Admin Enhancements, and Announcement System Overhaul"
+date: "2026-03-23"
+excerpt: "Seventh week at Makerspace InnovHub focused on building the mentor dashboard, implementing major enhancements across admin and mentor interfaces, and overhauling the announcement and notification management system."
+tags: ["sillag","mentor-dashboard", "admin", "announcements", "notifications", "fullstack"]
 ---
 
 ## Overview
-Quality assurance was the theme for week seven. I spent the week writing unit tests for our utility functions and setting up end-to-end tests for critical user paths.
 
-## Day 1 — Unit Testing
-Started by writing unit tests for our core utility functions using Vitest. I focused on the data fetching and filtering logic we implemented in week three.
+Week 7 was one of the most feature-dense weeks so far. Despite being a shorter week due to absences, the days present were packed with meaningful development — from building the mentor dashboard from scratch to delivering a sweeping set of enhancements across multiple roles and dashboards. By the end of the week, the platform had grown significantly in both functionality and polish.
 
-## Day 2 — Component Testing
-Implemented component tests using React Testing Library. I focused on ensuring that our complex molecules behave correctly under different props and states.
+## Day-by-Day
 
-## Day 3 — E2E Setup
-Configured Playwright for end-to-end testing. I set up the initial test suite to verify that the main navigation and project pages are accessible and functional.
+**March 23 — Building and Polishing the Mentor Dashboard**
 
-## Day 4 — Critical Path Tests
-Wrote E2E tests for the contact form submission and theme switching. These tests give us confidence that our most important features won't break during future updates.
+The week began with creating the mentor dashboard — a dedicated space for mentors to manage their activities within the platform. Beyond just building the initial structure, I also spent time polishing its design and functionality, making sure the layout was intuitive and the features behaved as expected before moving on to more complex work.
 
-## Day 5 — CI Integration
-Integrated our test suite into the CI pipeline. Now, every pull request is automatically checked for regressions before it can be merged.
+**March 26 — Major Dashboard Enhancements and Researcher Profile Activity UI**
+
+This was a heavily productive day. I implemented a wide range of enhancements across both the university admin and mentor dashboards, including stats displays, member import functionality, announcements, file upload support, dynamic data fetching, and authentication updates. On top of that, I built the Recent Activity UI for researcher profiles — complete with scroll, search, and delete confirmation functionality — giving researchers a cleaner and more interactive way to track their activity on the platform.
+
+**March 27 — Announcement System, Workflow Improvements, and PR Merges**
+
+The week closed with a comprehensive overhaul of the announcement and notification management system. I implemented full API and UI integration for announcements, including edit functionality and role-based targeting so messages reach the right people. Dashboards and workflows across multiple roles were also improved, and admin features like member import and announcements were further refined. I merged PRs covering dashboard, report, and UX improvements, and added SweetAlert to delete buttons for a more polished and user-friendly confirmation experience.
 
 ## Key Takeaways
-- Testing utilities first provides the highest ROI for development time.
-- E2E tests are essential for verifying that disparate parts of the app work together.
-- Automated testing in CI is a game-changer for team confidence.
+
+- Built and polished the mentor dashboard from the ground up
+- Delivered major enhancements to university admin and mentor dashboards including stats, file uploads, and dynamic data fetching
+- Built the Recent Activity UI for researcher profiles with scroll, search, and delete confirmation
+- Implemented a full announcement and notification system with API integration, edit support, and role targeting
+- Merged PRs for dashboard, report, and UX improvements
+- Added SweetAlert to delete buttons for better user experience

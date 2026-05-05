@@ -1,29 +1,40 @@
 ---
-title: "Week 4 – Polish & Performance"
-date: "2025-03-24"
-excerpt: "Refining animations, improving Lighthouse scores, and final month-one review."
-tags: ["performance", "lighthouse", "optimization"]
+title: "Week 4 – FullStack Team, TBI Coach Redesign, and Coaching Request Feature"
+date: "2026-03-02"
+excerpt: "Fourth week at Makerspace InnovHub marking a team transfer to FullStack, focusing on institution registration polishing, TBI Coach redesign, and implementing the coaching request feature."
+tags: ["sillag","fullstack", "redesign", "tbi-coach", "superadmin", "university"]
 ---
 
 ## Overview
-Wrapping up the first month by shifting focus to performance and polish. I spent the week analyzing our Lighthouse scores and implementing SEO best practices.
 
-## Day 1 — Performance Audit
-Conducted a thorough performance audit using Lighthouse. Identified several bottlenecks in the rendering path and established a baseline for our optimization efforts.
+Week 4 marked a significant shift — I was moved from the Backend Team to the FullStack Team. This transition meant taking on a broader scope of work, touching both the frontend and backend sides of the system. The week was packed with polishing tasks, major redesign work, and shipping a new feature that directly impacts how TBI Coaches interact with students on the platform.
 
-## Day 2 — Image Optimization
-Optimized all images using the Next.js Image component. I implemented better sourcing and sizing strategies to reduce Cumulative Layout Shift (CLS).
+## Day-by-Day
 
-## Day 3 — Web Fonts & Rendering
-Leveraged Next.js font optimization to improve our Largest Contentful Paint (LCP). I also refined some CSS transitions to ensure they are hardware-accelerated.
+**March 2 — Institution Registration Polishing**
 
-## Day 4 — Dynamic Metadata
-Implemented dynamic metadata generation for all log pages. Each entry now has unique, SEO-friendly titles and descriptions to improve our search visibility.
+The week started with polishing the institution registration flow. This involved reviewing the existing registration process for institutions and refining the UI and validation logic to make sure the experience is smooth and error-free for new institutional users entering the platform.
 
-## Day 5 — Month-One Reflection
-Reviewed all the work completed during the first month. We've achieved consistent 95+ Lighthouse scores, and I'm excited about the foundation we've built.
+**March 3 — Regex Polishing and University Data Fetching**
+
+I worked on polishing the regex patterns used for validating approved university entries, ensuring that the validation logic correctly handles different university name formats. Alongside this, I implemented the fetching of approved universities from the database, making the registration flow dynamic rather than relying on a static list.
+
+**March 4 — TBI Coach Major Redesign and Superadmin Landing Page**
+
+This was a significant day — a major redesign of the TBI Coach interface was initiated. The goal was to modernize and improve the usability of the coach-facing side of the platform. In parallel, I also worked on creating the Superadmin Landing Page, which serves as the central hub for platform administrators to manage and oversee system-wide operations.
+
+**March 5 — TBI Coach Dashboard Overhaul**
+
+Continuing from the previous day's redesign, I focused on the TBI Coach side specifically — redesigning the interface, implementing the fetching of all Researchers who currently do not have an assigned coach, and polishing the entire TBI Coach dashboard. Making unassigned researchers visible to coaches is a key part of the platform's matching workflow.
+
+**March 6 — Coaching Request Feature**
+
+The week ended with implementing a complete new feature: TBI Coaches can now send coaching requests to students directly from the platform. These requests are routed through the UniAdmin Requests page, where university administrators can review and approve them. This creates a proper approval workflow that keeps institutional oversight intact while enabling coaches to proactively reach out to students.
 
 ## Key Takeaways
-- Optimization is an iterative process that requires constant measurement.
-- SEO is as much about technical structure as it is about content.
-- Small performance gains in images and fonts lead to a significantly better UX.
+
+- Transferred to the FullStack Team, taking on both frontend and backend responsibilities
+- Polished institution registration flow including regex validation and dynamic university fetching
+- Led the major redesign of the TBI Coach interface and dashboard
+- Created the Superadmin Landing Page for platform-wide administration
+- Shipped the coaching request feature with a full UniAdmin approval workflow

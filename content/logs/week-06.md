@@ -1,29 +1,30 @@
 ---
-title: "Week 6 – State & Forms"
-date: "2025-04-07"
-excerpt: "Managing complex UI state and implementing robust form handling with validation."
-tags: ["state", "forms", "react-hook-form"]
+title: "Week 6 – System Improvements and PDR-Based Refinements"
+date: "2026-03-16"
+excerpt: "Sixth week at Makerspace InnovHub focused on continuous system improvement, reviewing new PDRs, and applying refinements across the platform based on updated requirements."
+tags: ["sillag","system-improvement", "PDR", "refinements", "fullstack"]
 ---
 
 ## Overview
-This week was about handling user input and complex state. I focused on building robust forms for the contact section and managing the global application state efficiently.
 
-## Day 1 — State Architecture
-Reviewed our state management strategy. I decided to stick with React's built-in hooks for local state and leveraged context providers for theme and user preferences.
+Week 6 was a shorter week due to absences, but the days present were spent on meaningful work — revisiting the system with fresh eyes, reviewing new Product Design Requirements (PDRs), and applying targeted improvements to make the platform more polished and aligned with the latest specifications.
 
-## Day 2 — Form Implementation
-Implemented the contact form using `react-hook-form`. This library has significantly simplified our form logic and improved the performance of input fields.
+## Day-by-Day
 
-## Day 3 — Validation Logic
-Added Zod schema validation to our forms. This ensures that we have type safety both on the client and server side, preventing invalid data from being processed.
+**March 16 — Continuing System Improvements**
 
-## Day 4 — Error Handling
-Focused on providing clear and accessible error messages. I implemented visual feedback for each field and ensured that form submission states are clearly communicated.
+The week kicked off by picking up where Week 5 left off — continuing to improve the overall system. This involved identifying areas that still needed refinement and addressing them incrementally, ensuring the platform stays stable and consistent as new features are layered in.
 
-## Day 5 — State Optimization
-Spent the day optimizing our context providers to prevent unnecessary re-renders. I used `useMemo` and `useCallback` to stabilize our logic.
+**March 17 — Reviewing New PDRs and Polishing the System**
+
+A significant part of this day was dedicated to reviewing newly submitted PDRs. After going through the updated requirements, I shifted to polishing existing parts of the system — cleaning up inconsistencies, tightening up UI behavior, and making sure previously built features met the new standards set by the PDRs.
+
+**March 18 — Implementing PDR-Based Improvements**
+
+Building directly on the PDR review from the day before, I continued improving the system with the new requirements as a guide. This meant going back into both the frontend and backend to adjust components, fix edge cases, and ensure the platform behaved exactly as the updated specifications intended.
 
 ## Key Takeaways
-- Form libraries like react-hook-form save a massive amount of boilerplate code.
-- Zod is excellent for creating a "single source of truth" for data validation.
-- Minimal state is usually better than over-engineered global stores.
+
+- Continued incremental system improvements from the previous week
+- Reviewed new PDRs to stay aligned with updated platform requirements
+- Applied PDR-driven refinements across the system for better consistency and quality
