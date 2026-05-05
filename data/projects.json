@@ -4,14 +4,14 @@
     "title": "Sillag",
     "description": " platform that allows researchers to mint and verify ownership of their research work through smart contracts, ensuring authenticity and intellectual property protection.",
     "contribution": "Started as a Backend Developer handling server-side logic and APIs, then transitioned to Full-Stack as the project matured — contributing to both the frontend UI and backend architecture.",
-    "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
+    "imageUrl": "https://sillag-six.vercel.app/_next/image?url=%2Fsillag%20logo.png&w=256&q=75",
     "category": "Web Application",
     "techStack": [
       "Next.js",
       "TypeScript",
       "Tailwind CSS"
     ],
-    "liveUrl": "https://sillag.demo",
+    "liveUrl": "https://sillag-six.vercel.app/",
     "githubUrl": "https://github.com/ReyJrFerrer/Sillag",
     "completionDate": "feb-april 2026",
     "featured": true
