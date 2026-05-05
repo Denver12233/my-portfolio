@@ -26,7 +26,7 @@ export const FilterableGallery = ({ projects, categories, techStacks }: Filterab
     <div className="space-y-12">
       <div className="flex flex-col gap-8">
         <div className="space-y-4">
-          <span className="text-[10px] font-black uppercase tracking-widest text-neutral-400 block">Category</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block">Category</span>
           <div className="flex flex-wrap gap-2">
             {["All", ...categories].map((cat) => (
               <button
@@ -44,7 +44,7 @@ export const FilterableGallery = ({ projects, categories, techStacks }: Filterab
         </div>
 
         <div className="space-y-4">
-          <span className="text-[10px] font-black uppercase tracking-widest text-neutral-400 block">Technology</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-neutral-500 dark:text-neutral-400 block">Technology</span>
           <div className="flex flex-wrap gap-2">
             {["All", ...techStacks].map((tech) => (
               <button

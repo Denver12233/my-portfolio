@@ -81,7 +81,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
 
             {/* Mobile Hint - Visible when overlay is hidden */}
             {!isContributionVisible && (
-              <div className="absolute bottom-4 left-4 md:hidden z-20 px-3 py-1.5 bg-neutral-900/40 backdrop-blur-md border border-white/10 text-white text-[8px] font-black uppercase tracking-widest rounded-full opacity-60">
+              <div className="absolute bottom-4 left-4 md:hidden z-20 px-3 py-1.5 bg-neutral-900/80 backdrop-blur-md border border-white/20 text-white text-[8px] font-black uppercase tracking-widest rounded-full">
                 Tap to explore
               </div>
             )}
@@ -153,7 +153,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         </p>
 
         <div className="mt-auto pt-6 border-t border-neutral-100 dark:border-zinc-800 flex justify-between items-center">
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400">
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
             {project.completionDate}
           </span>
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-600 dark:text-accent-400 opacity-0 group-hover:opacity-100 transition-opacity">

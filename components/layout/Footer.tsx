@@ -49,7 +49,7 @@ export const Footer = () => {
 
           {/* Column 2: Navigation */}
           <div className="flex flex-col gap-6">
-            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-400">
+            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
               Navigation
             </span>
             <div className="flex flex-col gap-3">
@@ -67,7 +67,7 @@ export const Footer = () => {
 
           {/* Column 3: Contact */}
           <div className="flex flex-col gap-6">
-            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-400">
+            <span className="text-[10px] font-black uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
               Contact
             </span>
             <div className="flex flex-col gap-3">
@@ -85,10 +85,10 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-neutral-100 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-neutral-400 dark:text-neutral-500">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
             © {currentYear} Denver Tandingan. All rights reserved.
           </p>
-          <p className="text-xs text-neutral-400 dark:text-neutral-500">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
             Built with Next.js & Tailwind CSS
           </p>
         </div>
