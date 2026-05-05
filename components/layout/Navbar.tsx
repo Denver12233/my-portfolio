@@ -66,7 +66,7 @@ export const Navbar = () => {
           {/* Hamburger Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 text-neutral-900 dark:text-white transition-colors"
+            className="md:hidden flex items-center justify-center w-11 h-11 text-neutral-900 dark:text-white transition-colors"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? (

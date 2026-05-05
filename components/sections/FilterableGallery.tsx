@@ -32,7 +32,7 @@ export const FilterableGallery = ({ projects, categories, techStacks }: Filterab
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-[11px] font-bold transition-all ${selectedCategory === cat
+                className={`px-5 min-h-[44px] flex items-center justify-center rounded-full text-[11px] font-bold transition-all ${selectedCategory === cat
                   ? "bg-accent-600 text-white shadow-lg shadow-accent-600/20"
                   : "border border-neutral-200 dark:border-zinc-800 text-neutral-500 hover:bg-neutral-50 dark:hover:bg-zinc-800/50"
                   }`}
@@ -50,7 +50,7 @@ export const FilterableGallery = ({ projects, categories, techStacks }: Filterab
               <button
                 key={tech}
                 onClick={() => setSelectedTech(tech)}
-                className={`px-5 py-2.5 rounded-full text-[11px] font-bold transition-all ${selectedTech === tech
+                className={`px-5 min-h-[44px] flex items-center justify-center rounded-full text-[11px] font-bold transition-all ${selectedTech === tech
                   ? "bg-accent-600 text-white shadow-lg shadow-accent-600/20"
                   : "border border-neutral-200 dark:border-zinc-800 text-neutral-500 hover:bg-neutral-50 dark:hover:bg-zinc-800/50"
                   }`}

@@ -20,7 +20,7 @@ export const LogsGrid = ({ logs }: LogsGridProps) => {
 
   // 1. Search Logic with Normalization (Strip spaces and lowercase)
   const filteredLogs = logs.filter((log) => {
-    const normalize = (str: string) => str.replace(/\s+/g, "").toLowerCase();
+    const normalize = (str: string) => (str || "").replace(/\s+/g, "").toLowerCase();
     const query = normalize(searchQuery);
 
     if (!query) return true;
