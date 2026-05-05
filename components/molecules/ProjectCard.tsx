@@ -27,14 +27,16 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     };
   }, [isContributionVisible]);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    // On mobile, clicking the card toggles the overlay
-    if (window.innerWidth < 768) {
-      setIsContributionVisible(!isContributionVisible);
-    } else if (project.liveUrl) {
-      // On desktop, clicking the card opens the link
+  const handleViewDetails = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (project.liveUrl) {
       window.open(project.liveUrl, "_blank");
     }
+  };
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Only navigate if it's not a button click (though propagation should handle most)
+    handleViewDetails(e);
   };
 
   const handleGithubClick = (e: React.MouseEvent) => {
@@ -44,19 +46,9 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     }
   };
 
-  const handleLiveClick = (e: React.MouseEvent) => {
+  const handleExploreClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (project.liveUrl) {
-      window.open(project.liveUrl, "_blank");
-    }
-  };
-
-  const handleImageClick = (e: React.MouseEvent) => {
-    // Only toggle on mobile (md breakpoint is 768px)
-    if (window.innerWidth < 768) {
-      e.stopPropagation();
-      setIsContributionVisible(!isContributionVisible);
-    }
+    setIsContributionVisible(true);
   };
 
   const cardVariants = {
@@ -81,8 +73,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     >
       {/* Expanded Image Area */}
       <div 
-        className="relative w-full aspect-[16/9] overflow-hidden cursor-pointer md:cursor-default"
-        onClick={handleImageClick}
+        className="relative w-full aspect-[16/9] overflow-hidden"
       >
         {project.imageUrl ? (
           <>
@@ -100,11 +91,14 @@ export const ProjectCard = ({ project }: { project: Project }) => {
               />
             </motion.div>
 
-            {/* Mobile Hint - Visible when overlay is hidden */}
-            {!isContributionVisible && (
-              <div className="absolute bottom-4 left-4 md:hidden z-20 px-3 py-1.5 bg-neutral-900/80 backdrop-blur-md border border-white/20 text-white text-[8px] font-black uppercase tracking-widest rounded-full">
+            {/* Mobile Explore Button - Visible when overlay is hidden */}
+            {!(isHovered || isContributionVisible) && (
+              <button 
+                onClick={handleExploreClick}
+                className="absolute bottom-4 left-4 md:hidden z-20 px-4 py-2 bg-neutral-900/90 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg active:scale-95 transition-all"
+              >
                 Tap to explore
-              </div>
+              </button>
             )}
 
             {/* Dark Overlay on Hover/Mobile Toggle */}
@@ -115,7 +109,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         )}
 
         {/* Contribution Overlay */}
-        <div className="absolute inset-0 p-8 flex flex-col justify-end pointer-events-none">
+        <div className="absolute inset-0 z-30 pointer-events-none">
           <AnimatePresence>
             {(isHovered || isContributionVisible) && (
               <motion.div
@@ -124,31 +118,51 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 exit="hidden"
                 variants={overlayVariants}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className="space-y-4 pointer-events-auto"
+                className="absolute inset-0 p-6 md:p-8 flex flex-col pointer-events-auto overflow-y-auto custom-scrollbar"
               >
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-400">Contribution</span>
-                <p className="text-white text-lg font-medium leading-tight">
-                  {project.contribution}
-                </p>
-                <div className="flex gap-3 pt-2">
-                  {project.liveUrl && (
+                {/* Close Button - Mobile Only */}
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsContributionVisible(false);
+                  }}
+                  className="absolute top-4 right-4 p-2 text-white/50 hover:text-white transition-colors md:hidden"
+                  aria-label="Close overlay"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div className="flex-grow min-h-[2rem] pointer-events-none" />
+                
+                <div className="space-y-4 pb-2">
+                  <div className="pointer-events-none select-none space-y-4">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-400 block">Contribution</span>
+                    <p className="text-white text-base md:text-lg font-medium leading-snug">
+                      {project.contribution}
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
                     <button 
-                      onClick={handleLiveClick}
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white ring-1 ring-white/20 hover:bg-white/20 transition-colors"
-                      aria-label="View Live Project"
+                      onClick={handleViewDetails}
+                      className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hover:text-accent-400 transition-colors group/btn"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                      View Project 
+                      <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                     </button>
-                  )}
-                  {project.githubUrl && (
-                    <button 
-                      onClick={handleGithubClick}
-                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white ring-1 ring-white/20 hover:bg-white/20 transition-colors"
-                      aria-label="View Source Code on GitHub"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
-                    </button>
-                  )}
+
+                    <div className="flex gap-3">
+                      {project.githubUrl && (
+                        <button 
+                          onClick={handleGithubClick}
+                          className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white ring-1 ring-white/20 hover:bg-white/20 transition-colors"
+                          aria-label="View Source Code on GitHub"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
