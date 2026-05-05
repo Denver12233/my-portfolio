@@ -35,13 +35,14 @@ export default function Loading() {
 
             {/* 2. Stats Row Skeleton */}
             <div className="flex gap-10 pt-10 border-t border-neutral-100 dark:border-zinc-800/50">
-              {Array.from({ length: heroData.stats.length }).map((_, i) => (
+              {[1, 2, 3].map((_, i) => (
                 <div key={i} className="space-y-2">
                   <div className={`h-8 w-16 ${skeletonClass}`} />
                   <div className={`h-3 w-20 rounded-full ${skeletonClass}`} />
                 </div>
               ))}
             </div>
+
           </div>
           
           <div className={`shrink-0 w-full md:w-[280px] h-[340px] rounded-[1.5rem] ${skeletonClass}`} />

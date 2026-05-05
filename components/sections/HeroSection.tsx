@@ -20,9 +20,11 @@ const crossfadeVariants: Variants = {
 
 interface HeroSectionProps {
   data: HeroData;
+  stats?: React.ReactNode;
 }
 
-export const HeroSection = ({ data }: HeroSectionProps) => {
+export const HeroSection = ({ data, stats }: HeroSectionProps) => {
+
   const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -125,13 +127,9 @@ export const HeroSection = ({ data }: HeroSectionProps) => {
               variants={getFadeUpVariantWithDelay(shouldReduceMotion, 0.5)}
               className="flex gap-10 justify-center md:justify-start mt-10 pt-8 border-t border-neutral-100 dark:border-zinc-800"
             >
-              {data.stats.map((stat, idx) => (
-                <div key={idx}>
-                  <div className="text-2xl font-plusJakarta font-bold text-neutral-900 dark:text-white">{stat.value}</div>
-                  <div className="text-[11px] text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
-                </div>
-              ))}
+              {stats}
             </motion.div>
+
           </div>
 
           {/* RIGHT — Profile Photo Carousel */}
