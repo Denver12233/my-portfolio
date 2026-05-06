@@ -98,7 +98,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 alt={project.title}
                 fill
                 className="object-cover brightness-100"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </motion.div>
 
@@ -137,7 +137,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     e.stopPropagation();
                     setIsContributionVisible(false);
                   }}
-                  className="absolute top-4 right-4 p-2 text-white/50 hover:text-white transition-colors md:hidden"
+                  className="absolute top-1 right-1 w-11 h-11 flex items-center justify-center text-white/50 hover:text-white transition-colors md:hidden"
                   aria-label="Close overlay"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>

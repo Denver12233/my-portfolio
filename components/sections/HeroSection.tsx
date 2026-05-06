@@ -197,27 +197,29 @@ export const HeroSection = ({ data, stats }: HeroSectionProps) => {
                 </AnimatePresence>
 
                 {/* Indicators with progress bar */}
-                <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-10">
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
                   {data.images.map((_, idx) => {
                     const isActive = idx === (currentIndex % data.images.length);
                     return (
                       <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
-                        className="relative w-8 h-1 rounded-full bg-white/30 overflow-hidden"
+                        className="w-11 h-11 flex items-center justify-center group/indicator"
                         aria-label={`Go to image ${idx + 1}`}
                       >
-                        {isActive && (
-                          <motion.div
-                            initial={{ width: "0%" }}
-                            animate={isHovered ? {} : { width: "100%" }}
-                            transition={{ 
-                              duration: 3.5, 
-                              ease: "linear" 
-                            }}
-                            className="h-full bg-accent-500"
-                          />
-                        )}
+                        <div className={`w-8 h-1 rounded-full transition-colors ${isActive ? 'bg-accent-500' : 'bg-white/30'} overflow-hidden relative`}>
+                          {isActive && (
+                            <motion.div
+                              initial={{ width: "0%" }}
+                              animate={isHovered ? {} : { width: "100%" }}
+                              transition={{ 
+                                duration: 3.5, 
+                                ease: "linear" 
+                              }}
+                              className="h-full bg-accent-500"
+                            />
+                          )}
+                        </div>
                       </button>
                     );
                   })}
