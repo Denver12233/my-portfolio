@@ -9,12 +9,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
+  display: 'swap',
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dmsans",
   weight: ["300", "400", "500"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -54,7 +56,7 @@ export default function RootLayout({
                 "@type": "Person",
                 "name": "Denver Tandingan",
                 "jobTitle": "Frontend Developer & UI/UX Designer Intern",
-                "url": "https://my-portfolio-zeta-one-99.vercel.app",
+                "url": "https://denvervm-portfolio.vercel.app",
                 "sameAs": [
                   "https://github.com/Denver12233",
                   "https://www.linkedin.com/in/tandingan-denver-m-374910392/"

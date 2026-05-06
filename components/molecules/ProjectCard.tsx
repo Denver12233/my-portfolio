@@ -138,7 +138,7 @@ export const ProjectCard = ({ project, priority = false }: { project: Project, p
                     e.stopPropagation();
                     setIsContributionVisible(false);
                   }}
-                  className="absolute top-1 right-1 w-11 h-11 flex items-center justify-center text-white/50 hover:text-white transition-colors md:hidden"
+                  className="absolute top-1 right-1 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white transition-colors md:hidden"
                   aria-label="Close overlay"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -158,6 +158,7 @@ export const ProjectCard = ({ project, priority = false }: { project: Project, p
                     <button 
                       onClick={handleViewDetails}
                       className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white hover:text-accent-400 transition-colors group/btn"
+                      aria-label={`View live project for ${project.title}`}
                     >
                       View Project 
                       <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
