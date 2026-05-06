@@ -54,7 +54,7 @@ export const HeroSection = ({ data, stats }: HeroSectionProps) => {
               initial="hidden"
               animate="visible"
               variants={getFadeUpVariant(shouldReduceMotion)}
-              className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-600 dark:text-accent-400 mb-5 block"
+              className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-700 dark:text-accent-400 mb-5 block"
             >
               {data.label}
             </motion.span>

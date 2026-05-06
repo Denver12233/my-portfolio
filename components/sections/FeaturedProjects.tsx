@@ -17,9 +17,9 @@ export const FeaturedProjects = async () => {
           <Button href="/work" variant="outline" className="hidden sm:inline-flex">View Gallery</Button>
         </div>
         <StaggerContainer className="grid md:grid-cols-2 gap-10">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <StaggerItem key={project.id}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} priority={index < 2} />
             </StaggerItem>
           ))}
         </StaggerContainer>

@@ -6,7 +6,7 @@ import { Badge } from "../atoms/Badge";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 
-export const ProjectCard = ({ project }: { project: Project }) => {
+export const ProjectCard = ({ project, priority = false }: { project: Project, priority?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isContributionVisible, setIsContributionVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -38,7 +38,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
   const handleViewDetails = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (project.liveUrl) {
-      window.open(project.liveUrl, "_blank");
+      window.open(project.liveUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -50,7 +50,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
   const handleGithubClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (project.githubUrl) {
-      window.open(project.githubUrl, "_blank");
+      window.open(project.githubUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -99,6 +99,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 fill
                 className="object-cover brightness-100"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority={priority}
               />
             </motion.div>
 

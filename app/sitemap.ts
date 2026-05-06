@@ -3,7 +3,7 @@ import { getAllLogs } from '@/lib/getLogs';
 import { getProjects } from '@/lib/getProjects';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://my-portfolio-zeta-one-99.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://denvervm-portfolio.vercel.app';
 
   const logs = await getAllLogs();
   const projects = await getProjects();

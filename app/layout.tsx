@@ -18,11 +18,15 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://denvervm-portfolio.vercel.app'),
   title: {
     template: "%s | Denver Tandingan",
     default: "Denver Tandingan | Internship Portfolio",
   },
   description: "Frontend Developer & UI/UX Designer Intern Portfolio. Showcasing projects and learning logs.",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "Denver Tandingan | Internship Portfolio",
     description: "Frontend Developer & UI/UX Designer Intern Portfolio.",
