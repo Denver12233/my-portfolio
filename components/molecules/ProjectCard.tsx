@@ -9,8 +9,16 @@ import { useState, useRef, useEffect } from "react";
 export const ProjectCard = ({ project }: { project: Project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isContributionVisible, setIsContributionVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,6 +68,9 @@ export const ProjectCard = ({ project }: { project: Project }) => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const showOverlay = isContributionVisible || (isHovered && !isMobile);
+
+
   return (
     <motion.div
       ref={cardRef}
@@ -78,7 +89,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         {project.imageUrl ? (
           <>
             <motion.div
-              animate={{ scale: isHovered ? 1.05 : 1 }}
+              animate={{ scale: showOverlay ? 1.05 : 1 }}
               transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
               className="w-full h-full relative bg-white"
             >
@@ -92,7 +103,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
             </motion.div>
 
             {/* Mobile Explore Button - Visible when overlay is hidden */}
-            {!(isHovered || isContributionVisible) && (
+            {!showOverlay && (
               <button 
                 onClick={handleExploreClick}
                 className="absolute bottom-4 left-4 md:hidden z-20 px-4 py-2 bg-neutral-900/90 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg active:scale-95 transition-all"
@@ -102,7 +113,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
             )}
 
             {/* Dark Overlay on Hover/Mobile Toggle */}
-            <div className={`absolute inset-0 bg-neutral-900/80 transition-opacity duration-500 ${(isHovered || isContributionVisible) ? 'opacity-100' : 'opacity-0'}`} />
+            <div className={`absolute inset-0 bg-neutral-900/80 transition-opacity duration-500 ${showOverlay ? 'opacity-100' : 'opacity-0'}`} />
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-zinc-800 dark:to-zinc-900 flex items-center justify-center p-6" />
@@ -111,7 +122,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         {/* Contribution Overlay */}
         <div className="absolute inset-0 z-30 pointer-events-none">
           <AnimatePresence>
-            {(isHovered || isContributionVisible) && (
+            {showOverlay && (
               <motion.div
                 initial="hidden"
                 animate="visible"
