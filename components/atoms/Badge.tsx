@@ -5,9 +5,9 @@ interface BadgeProps {
 
 export const Badge = ({ label, variant = "gray" }: BadgeProps) => {
   const variants = {
-    green: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
-    gray: "bg-neutral-100 text-neutral-600 dark:bg-neutral-800/50 dark:text-neutral-400 border-neutral-200 dark:border-neutral-700",
-    amber: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-amber-200 dark:border-amber-800",
+    green: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
+    gray: "bg-neutral-100 text-neutral-700 dark:bg-neutral-800/50 dark:text-neutral-400 border-neutral-200 dark:border-neutral-700",
+    amber: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400 border-amber-200 dark:border-amber-800",
   };
 
   return (

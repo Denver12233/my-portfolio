@@ -18,7 +18,7 @@ export default async function WorkPage() {
 
   return (
     <div className="container mx-auto px-6 py-20 max-w-5xl">
-      <SectionLabel eyebrow="ARCHIVE" heading="Selected Work" />
+      <SectionLabel eyebrow="ARCHIVE" heading="Selected Work" as="h1" />
       <FilterableGallery 
         projects={projects} 
         categories={categories} 

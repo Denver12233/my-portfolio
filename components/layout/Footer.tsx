@@ -47,19 +47,19 @@ export const Footer = () => {
               <div className="flex flex-col gap-3">
                 <a href="mailto:tandingandenverm@gmail.com" className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accent-600 transition-colors">
                   <Tooltip content="Email">
-                    <Mail className="w-4 h-4" />
+                    <Mail className="w-4 h-4" aria-hidden="true" />
                   </Tooltip>
                   <span>tandingandenverm@gmail.com</span>
                 </a>
                 <a href="https://github.com/Denver12233" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accent-600 transition-colors">
                   <Tooltip content="GitHub">
-                    <Github className="w-4 h-4" />
+                    <Github className="w-4 h-4" aria-hidden="true" />
                   </Tooltip>
                   <span>github.com/Denver12233</span>
                 </a>
                 <a href="https://www.linkedin.com/in/tandingan-denver-m-374910392/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-accent-600 transition-colors">
                   <Tooltip content="LinkedIn">
-                    <Linkedin className="w-4 h-4" />
+                    <Linkedin className="w-4 h-4" aria-hidden="true" />
                   </Tooltip>
                   <span>LinkedIn</span>
                 </a>

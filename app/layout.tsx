@@ -40,9 +40,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{
+      <html lang="en" suppressHydrationWarning>
+        <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Denver Tandingan",
+                "jobTitle": "Frontend Developer & UI/UX Designer Intern",
+                "url": "https://my-portfolio-zeta-one-99.vercel.app",
+                "sameAs": [
+                  "https://github.com/Denver12233",
+                  "https://www.linkedin.com/in/tandingan-denver-m-374910392/"
+                ]
+              })
+            }}
+          />
+          <script dangerouslySetInnerHTML={{
           __html: `
           try {
             const theme = localStorage.getItem('portfolio-theme') || 'light';

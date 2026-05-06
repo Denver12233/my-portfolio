@@ -68,13 +68,13 @@ export const LogsGrid = ({ logs }: LogsGridProps) => {
       {/* Header with Sort Toggle */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
         <div>
-          <span className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-600 dark:text-accent-400 mb-3 block">
+          <span className="text-[11px] font-black uppercase tracking-[0.35em] text-accent-700 dark:text-accent-400 mb-3 block">
             Reflections
           </span>
-          <div className="flex items-center gap-4">
-            <h2 className="text-4xl md:text-5xl font-plusJakarta font-extrabold tracking-tight">
+          <div className="flex flex-wrap items-center gap-4">
+            <h1 className="text-4xl md:text-5xl font-plusJakarta font-extrabold tracking-tight">
               Internship Logs
-            </h2>
+            </h1>
             <button
               onClick={() => {
                 setSortOrder(sortOrder === "asc" ? "desc" : "asc");
