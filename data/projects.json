@@ -23,7 +23,7 @@
   {
     "id": "2",
     "title": "Promptgraph",
-    "description": "An enterprise analytics dashboard focused on AI query tracking, data health monitoring, and team collaboration tools.",
+    "description": "A multi-tenant admin dashboard for managing dealerships and vehicle inventory, exposing AI-optimized endpoints via PromptGraph, and monitoring API access and bot interactions with role-based access control.",
     "contribution": "Contributed as a developer intern — conducting AI Tracker audits, refactoring query result ordering, enhancing the QueryDetailsTable with timestamps and filters, and creating a PG Tiering proposal.",
     "imageUrl": "https://app.promptgraph.ai/logo-svg.svg",
     "category": "Web Application",
